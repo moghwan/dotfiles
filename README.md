@@ -1,3 +1,3 @@
-### .files with i3/plasma
+# minimal/personal i3wm dotfiles 
 
-* Addapted to my personal needs and configured for AZERTY keyboard layout
+![](screenshot.png) 
