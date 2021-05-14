@@ -31,9 +31,15 @@ fi
 # ZSH_THEME="clean"
 # ZSH_THEME="3den"
 # ZSH_THEME="random"
-ZSH_THEME="norm"
+# ZSH_THEME="norm"
 # ZSH_THEME="agnoster"
 # ZSH_THEME="gnzh"
+
+# ZSH_THEME="jonathan"
+# ZSH_THEME="josh"
+# ZSH_THEME="af-magic"
+ZSH_THEME="muse"
+
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
