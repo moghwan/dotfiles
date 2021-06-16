@@ -42,6 +42,7 @@ mode "$mode_system" {
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id blueman-applet
 # exec --no-startup-id nm-applet
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
@@ -57,7 +58,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec konsole
+bindsym $mod+Return exec Applications/hyper-3.0.2.AppImage
 # bindsym $mod+Return exec terminal
 
 # kill focused window
@@ -79,7 +80,8 @@ bindsym $mod+d exec rofi -show drun
 
 # Start Applications
 
-bindsym $mod+x exec krusader
+bindsym $mod+x exec thunar
+bindsym $mod+b exec firefox-developer-edition
 bindsym $mod+t exec telegram-desktop
 bindsym $mod+Shift+s exec flameshot gui
 bindsym $mod+c exec code
@@ -110,7 +112,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # workspace back and forth (with/without active container)
-# workspace_auto_back_and_forth yes
+workspace_auto_back_and_forth yes
 # bindsym $mod+b workspace back_and_forth
 
 # split in horizontal orientation
@@ -280,7 +282,8 @@ exec_always --no-startup-id xrandr --output HDMI1 --auto --right-of eDP1 # exter
 # exec_always xrandr --output eDP1 --off # turnoff laptop screen
 
 bar {
-	i3bar_command i3bar
+	# i3bar_command i3bar
+    # status_command i3blocks
 	status_command i3status
 	position top
   
@@ -290,7 +293,8 @@ bar {
 
 	bindsym button4 nop
 	bindsym button5 nop
-  font xft:Noto Sans 9
+    font xft:Noto Sans 9
+    # separator_symbol "·"
 	# strip_workspace_numbers yes
 
     colors {
@@ -328,8 +332,8 @@ for_window [class="^.*"] border pixel 1
 for_window [urgent=latest] focus
 #new_window 1pixel
 
-# gaps inner 20
-# gaps horizontal 45
+gaps inner 10
+# gaps horizontal 40
 # smart_gaps on
 smart_borders on
 

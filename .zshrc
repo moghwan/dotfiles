@@ -154,11 +154,11 @@ alias migratefs="php artisan migrate:fresh --seed"
 alias clearcache="php artisan cache:clear && php artisan route:clear && php artisan config:clear && php artisan view:clear"
 
 alias externalonly="xrandr --output eDP1 --off"
-# alias backupdotfiles='rm -rf ~/Projects/dotfiles/.config ~/Projects/dotfiles/.zshrc;cp -rn ~/.zshrc ~/Projects/dotfiles/.zshrc;cp -rn ~/.config/{i3,i3blocks,i3status,dunst,rofi} ~/Projects/dotfiles/.config/'
-# rm -rf ~/Projects/dotfiles/.config ~/Projects/dotfiles/.zshrc; mkdir ~/Projects/dotfiles/.config; cp -rn ~/.zshrc ~/Projects/dotfiles/.zshrc;cp -rn ~/.config/{i3,i3blocks,i3status,dunst,rofi} ~/Projects/dotfiles/.config/
+alias budf=`
+cp ~/.zshrc ~/Projects/dotfiles/.zshrc; cp ~/.hyper.js ~/Projects/dotfiles/.hyper.js; 
+cp -rn ~/.config/{i3,i3blocks,i3status,dunst,rofi,flameshot,gtk-2.0,gtk-3.0,gtk-4.0,htop,neofetch} ~/Projects/dotfiles/.config/;
+`
 
-# cp -rn ~/.config/i3 ~/Projects/dotfiles/.config/
-# cp -rn ~/.config/i3blocks ~/Projects/dotfiles/.config/
-# cp -rn ~/.config/i3status ~/Projects/dotfiles/.config/
-# cp -rn ~/.config/dunst ~/Projects/dotfiles/.config/
-# cp -rn ~/.config/rofi ~/Projects/dotfiles/.config/
+
+unsetopt PROMPT_SP
+clear && neofetch
