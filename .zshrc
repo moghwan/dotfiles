@@ -133,7 +133,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.config/composer/vendor/bin:$HOME/utils/flutter/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # my laravel aliases
 alias master="git checkout master"
@@ -143,6 +143,7 @@ alias rebase="git rebase master"
 alias push="git push origin"
 alias log="git log --oneline"
 
+alias sail="./vendor/bin/sail"
 alias artisan="php artisan"
 alias wire="php artisan livewire:make"
 alias makemig="php artisan make:migration"
@@ -154,9 +155,20 @@ alias migratefs="php artisan migrate:fresh --seed"
 alias clearcache="php artisan cache:clear && php artisan route:clear && php artisan config:clear && php artisan view:clear"
 
 alias externalonly="xrandr --output eDP1 --off"
+alias monitoroto="xrandr --auto"
 alias budf=`
-cp ~/.zshrc ~/Projects/dotfiles/.zshrc; cp ~/.hyper.js ~/Projects/dotfiles/.hyper.js; 
-cp -rn ~/.config/{i3,i3blocks,i3status,dunst,rofi,flameshot,gtk-2.0,gtk-3.0,gtk-4.0,htop,neofetch} ~/Projects/dotfiles/.config/;
+cp ~/.zshrc ~/Projects/dotfiles/.zshrc; cp ~/.hyper.js ~/Projects/dotfiles/.hyper.js;
+cp -r ~/.config/i3 ~/Projects/dotfiles/.config;
+cp -r ~/.config/i3blocks ~/Projects/dotfiles/.config;
+cp -r ~/.config/i3status ~/Projects/dotfiles/.config;
+cp -r ~/.config/dunst ~/Projects/dotfiles/.config;
+cp -r ~/.config/rofi ~/Projects/dotfiles/.config;
+cp -r ~/.config/flameshot ~/Projects/dotfiles/.config;
+cp -r ~/.config/gtk-2.0 ~/Projects/dotfiles/.config;
+cp -r ~/.config/gtk-3.0 ~/Projects/dotfiles/.config;
+cp -r ~/.config/gtk-4.0 ~/Projects/dotfiles/.config;
+cp -r ~/.config/htop ~/Projects/dotfiles/.config;
+cp -r ~/.config/neofetch ~/Projects/dotfiles/.config;
 `
 
 

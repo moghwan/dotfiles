@@ -4,7 +4,7 @@
 
 module.exports = {
   config: {
-    
+
     nativeWindowDecoration: {
       menuBar: 'hide',
     },
@@ -42,7 +42,7 @@ module.exports = {
 
     // terminal background color
     // opacity is only supported on macOS
-    backgroundColor: '#1A2028',
+    backgroundColor: '#0d0d0d',
 
     // terminal selection color
     selectionColor: '#ddd',

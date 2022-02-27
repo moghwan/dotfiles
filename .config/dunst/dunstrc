@@ -12,7 +12,7 @@
     horizontal_padding = 10
     text_icon_padding = 0
     frame_width = 1
-    frame_color = "#FDF6E3"
+    frame_color = "#00dc82"
     separator_color = frame
     sort = yes
     idle_threshold = 120
@@ -48,12 +48,14 @@
     close_all = ctrl+shift+space
 
 [urgency_low]
-    background = "#171c28"
+    # background = "#171c28"
+    background = "#0d0d0d"
     foreground = "#a8a8a8"
     timeout = 10
 
 [urgency_normal]
-    background = "#171c28"
+    # background = "#171c28"
+    background = "#0d0d0d"
     foreground = "#a8a8a8"
     timeout = 10
 
@@ -62,3 +64,8 @@
     foreground = "#f0e0e0"
     frame_color = "#d64e4e"
     timeout = 0
+
+# [spotify]
+#     appname = Spotify
+#     urgency = normal
+#     script  = ~/.scripts/spotify_log.sh

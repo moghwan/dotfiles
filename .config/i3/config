@@ -2,7 +2,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
-set $mod Mod4
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -19,7 +19,7 @@ font pango:monospace 8
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # bindsym $mod+grave exec i3lock -t -i ~/Pictures/Screenshot_20210208_003251.png
-bindsym $mod+grave exec blurlock
+bindsym $mod+Escape exec blurlock
 
 bindsym $mod+Shift+e mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
@@ -43,14 +43,15 @@ mode "$mode_system" {
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id blueman-applet
-# exec --no-startup-id nm-applet
+exec --no-startup-id nm-applet
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
+exec --no-startup-id bauh-tray
 
 # Use pactl to adjust volume in PulseAudio.
 # set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -67,31 +68,34 @@ bindsym $mod+q kill
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run -nb '#31363b' -sb '#00a9cc' -sf '#fff' # -fn 'pango:DejaVu Sans Mono 8'
 # bindsym $mod+d exec dmenu_run -b -nb '#31363b' -sb '#00a9cc' -sf '#fff' -fn 'pango:Inconsolata 10'
-bindsym $mod+d exec rofi -show drun
-# bindsym $mod+d exec rofi -show drun -sidebar-mode -show-icons
+# bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec rofi -show drun -sidebar-mode -show-icons
+# bindsym $mod+d exec rofi -show drun -show-icons
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktopmenu
 
 # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 10;"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10;"
 
 # Start Applications
 
-bindsym $mod+x exec thunar
-bindsym $mod+b exec firefox-developer-edition
-bindsym $mod+t exec telegram-desktop
+bindsym $mod+x exec dolphin
+bindsym $mod+z exec firefox-developer-edition
+bindsym $mod+g exec zenity --calendar
+# bindsym $mod+t exec telegram-desktop
+bindsym $mod+y exec discord
 bindsym $mod+Shift+s exec flameshot gui
 bindsym $mod+c exec code
 # focus_follows_mouse no
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -100,10 +104,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -117,7 +121,7 @@ workspace_auto_back_and_forth yes
 
 # split in horizontal orientation
 #bindsym $mod+h split h;exec notify-send 'tile horizontally'
-bindsym $mod+h split h;exec dunstify 'tile horizontally'
+bindsym $mod+b split h;exec dunstify 'tile horizontally'
 
 # split in vertical orientation
 #bindsym $mod+v split v;exec notify-send 'tile vertically'
@@ -146,32 +150,31 @@ bindsym $mod+Shift+q focus parent
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
-bindsym $mod+Ctrl+semicolon workspace next
-bindsym $mod+Ctrl+j workspace prev
+bindsym $mod+Ctrl+l workspace next
+bindsym $mod+Ctrl+h workspace prev
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 #set $ws1 "1"
-set $ws1 "1 / "
+set $ws1 "1"
 #set $ws2 "2"
-set $ws2 "2 / "
+set $ws2 "2"
 #set $ws3 "3"
-set $ws3 "3 / "
+set $ws3 "3"
 #set $ws4 "4"
-# set $ws4 "4 / "
-set $ws4 "4 / "
+set $ws4 "4"
 #set $ws5 "5"
-set $ws5 "5 / "
+set $ws5 "5"
 #set $ws6 "6"
-set $ws6 "6 / "
+set $ws6 "6"
 #set $ws7 "7"
-set $ws7 "7 / "
-#set $ws8 "7"
-set $ws8 "8 / "
-#set $ws9 "7"
-set $ws9 "9 / "
+set $ws7 "7"
+#set $ws8 "8"
+set $ws8 "8"
+#set $ws9 "9"
+set $ws9 "9"
 #set $ws10 "10"
-set $ws10 "10 / "
+set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -211,14 +214,14 @@ bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
 
 
 # assign apps to wordspaces
-for_window [class="code"] move to workspace number $ws2npm audit fix
+for_window [class="code"] $ws2
 assign [class="firefox-developer-edition"] $ws1
 assign [class="konsole"] $ws3
-assign [class="krusader"] $ws4
-assign [class="telegram-desktop"] $ws5
-# for_window [class="telegram-desktop"] move to workspace number $ws5
+assign [class="dolphin"] $ws4
+# assign [class="telegram-desktop"] $ws5
+for_window [class="telegram-desktop"] move to workspace number $ws5
 # for_window [class="Slack|discord"] move to workspace number $ws5
-for_window [class="Spotify"] move to workspace number $ws4
+for_window [class="Spotify"] move to workspace number $ws6
 
 exec --no-startup-id redshift
 exec --no-startup-id kdeconnect-indicator
@@ -226,9 +229,10 @@ exec --no-startup-id code
 # exec --no-startup-id feh --bg-fill ~/Pictures/88178.jpg
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id Firefox-developer-edition
-exec --no-startup-id konsole
-exec --no-startup-id telegram-desktop
-exec --no-startup-id Spotify
+# exec --no-startup-id konsole
+exec --no-startup-id indicator-sound-switcher
+# exec --no-startup-id spotify-tray
+# exec --no-startup-id Spotify
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -248,10 +252,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 5 px or 5 ppt
-        bindsym k resize grow height 5 px or 5 ppt
-        bindsym l resize shrink height 5 px or 5 ppt
-        bindsym m resize grow width 5 px or 5 ppt
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 5 px or 5 ppt
@@ -278,15 +282,15 @@ bindsym $mod+r mode "resize"
 #     }
 # }
 
-exec_always --no-startup-id xrandr --output HDMI1 --auto --right-of eDP1 # external at the right
-# exec_always xrandr --output eDP1 --off # turnoff laptop screen
+# ! exec_always --no-startup-id xrandr --output HDMI1 --auto --above eDP1 # external at the right
+# exec_always   # turnoff laptop screen
 
 bar {
 	# i3bar_command i3bar
     # status_command i3blocks
 	status_command i3status
 	position top
-  
+
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 	# tray_output primary
 	# tray_output eDP1
@@ -294,20 +298,38 @@ bar {
 	bindsym button4 nop
 	bindsym button5 nop
     font xft:Noto Sans 9
-    # separator_symbol "·"
-	# strip_workspace_numbers yes
+    separator_symbol " · "
+	strip_workspace_numbers yes
 
     colors {
-        background #171c28
-        statusline #F9FAF9
-        separator  #454947
+        # background #171c28
+        # statusline #F9FAF9
+        # separator  #454947
+        # ? START dracula at night theme
+        # background  #243341 * top
+        # background #0E1419 # * for bottom
+        background #0d0d0d
+        statusline #fafafa
+        separator  #fafafa
+        # separator  #6172a7
+        # ? END dracula at night theme
 
-#                      border  backgr. text
-        focused_workspace  #595B5B #171c28 #FDF6E3
-        active_workspace   #595B5B #171c28 #FDF6E3
-        inactive_workspace #222D31 #171c28 #777777
-        binding_mode       #00a9cc #2C2C2C #F9FAF9
-        urgent_workspace   #00a9cc #FDF6E3 #00a9cc
+#                           border  backgr. text
+        # focused_workspace  #595B5B #171c28 #FDF6E3
+        # active_workspace   #595B5B #171c28 #FDF6E3
+        # inactive_workspace #222D31 #171c28 #777777
+        # binding_mode       #00a9cc #2C2C2C #F9FAF9
+        # urgent_workspace   #00a9cc #FDF6E3 #00a9cc
+        # ? START dracula at night theme
+        focused_workspace  #00dc82 #222D31 #FDF6E3 # #222D31
+        active_workspace   #00dc82 #222D31 #FDF6E3
+        # inactive_workspace #0E1419 #0E1419 #777777 # * change 0E1419 with 243341 for top position
+        inactive_workspace #0d0d0d #0d0d0d #777777
+        # binding_mode       #00dc82 #0E1419 #F9FAF9 # * change 0E1419 with 243341 for top position
+        binding_mode       #00dc82 #0d0d0d #F9FAF9
+        urgent_workspace   #00dc82 #FDF6E3 #00dc82
+        # ? END dracula at night theme
+
     }
 }
 
@@ -316,6 +338,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
 for_window [class="yakuake"] floating enable
+for_window [class="bauh"] floating enable
 for_window [class="systemsettings"] floating enable
 for_window [class="plasmashell"] floating enable;
 for_window [class="Plasma"] floating enable; border none
@@ -333,7 +356,7 @@ for_window [urgent=latest] focus
 #new_window 1pixel
 
 gaps inner 10
-# gaps horizontal 40
+gaps horizontal 10
 # smart_gaps on
 smart_borders on
 
@@ -343,18 +366,34 @@ for_window [title="Desktop — Plasma"] kill; floating enable; border none
 # exec_always --no-startup-id picom -bc
 # exec_always --no-startup-id "killall polybar; polybar -r default"
 
+
 # class                 border  backgr. text    indicator child_border
-client.focused          #595B5B #171c28 #FDF6E3 #595B5B   #FDF6E3
-client.focused_inactive #595B5B #171c28 #FDF6E3 #595B5B   #5f676a
-client.unfocused        #222D31 #171c28 #777777 #292d2e   #31363b
+# client.focused          #595B5B #171c28 #FDF6E3 #595B5B   #00dc82
+# client.focused_inactive #595B5B #171c28 #FDF6E3 #595B5B   #5f676a
+# client.unfocused        #222D31 #171c28 #777777 #292d2e   #31363b
 
-# focused_workspace  #595B5B #171c28 #FDF6E3
-# active_workspace   #595B5B #171c28 #FDF6E3
-# inactive_workspace #222D31 #171c28 #777777
+# # focused_workspace  #595B5B #171c28 #FDF6E3
+# # active_workspace   #595B5B #171c28 #FDF6E3
+# # inactive_workspace #222D31 #171c28 #777777
 
-# client.focused          #cccccc #ffffff #005577 #ffffff   #0077aa
-# client.unfocused        #cccccc #eeeeee #333333 #eeeeee   #cccccc
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+# # client.focused          #cccccc #ffffff #005577 #ffffff   #0077aa
+# # client.unfocused        #cccccc #eeeeee #333333 #eeeeee   #cccccc
+# client.urgent           #2f343a #900000 #ffffff #900000   #900000
+# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
+
+# * START green update
+# #fcb65f to #00dc82
+# #f574c7 to #00dc82
+# #574475 to #222D31
+# * END green update
+# ? START dracula at night theme
+# class                 border  backgr. text    indicator child_border
+client.focused          #00dc82 #222D31 #ffffff #595B5B   #00dc82
+client.focused_inactive #0d0d0d #0d0d0d #777777 #595B5B   #5f676a
+client.unfocused        #0d0d0d #0d0d0d #777777 #292d2e   #31363b
+client.background       #ffffff
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+# ? END dracula at night theme
