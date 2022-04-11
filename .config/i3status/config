@@ -15,37 +15,37 @@ order += "cpu_temperature 0"
 order += "disk /"
 order += "memory"
 # order += "disk /home"
-order += "ethernet _first_"
+# order += "ethernet _first_"
 order += "wireless _first_"
 order += "volume master"
 order += "battery all"
 order += "tztime utc"
 
 load {
-        format = "<span>  %1min </span>"
+        format = "<span> %1min</span>"
 }
 
 cpu_usage {
         # format = "<span background='#d16e5d' color='#222222'>  %usage </span>"
-        format = "<span>  %usage </span>"
+        format = "<span> %usage</span>"
 	degraded_threshold = 40
 	max_threshold = 75
 }
 
 cpu_temperature 0 {
         # format = "<span background='#bf616a' color='#222222'>  %degrees° </span>"
-        format = "<span>  %degrees° </span>"
+        format = "<span> %degrees°</span>"
         path = "/sys/class/thermal/thermal_zone0/temp"
 }
 
 disk "/" {
         # format = "<span background='#a1d569' color='#222222'>  %free </span>" # %percentage_free
-        format = "<span>  %free </span>" # %percentage_free
+        format = "<span> %free</span>" # %percentage_free
 }
 
 memory {
         # format = "<span background='#813e7d' color='#dddddd'>  %used </span>"
-        format = "<span>  %used </span>"
+        format = "<span> %used</span>"
 	threshold_degraded = "40%"
 	threshold_critical = "20%"
 }
@@ -60,16 +60,18 @@ ethernet _first_ {
 
 wireless _first_ {
         # format_up = "<span background='#b48ead' color='#222222'>%quality @[%essid]  %ip </span>"
-        format_up = "<span>%quality  %essid · %ip </span>"
+        # format_up = "<span>%quality  %essid  %ip </span>"
+        format_up = "<span> %ip</span>"
         # format_down = "<span background='#b48ead' color='#222222'>  Dis </span>"
-        format_down = "<span>  </span>"
+        format_down = "<span></span>"
 }
 
 volume master {
         # format = "<span background='#ebcb8b' color='#222222'>  %volume </span>"
-        format = "<span>  %volume </span>"
+        format = "<span> %volume</span>"
         # format_muted = "<span background='#ebcb8b' color='#222222'>  Muted </span>"
-        format_muted = "<span>  </span>"
+        # format_muted = "<span></span>"
+        format_muted = ""
         device = "default"
         mixer = "Master"
         mixer_idx = 0
@@ -80,12 +82,12 @@ battery all {
         # format = "<span>%status %percentage %consumption</span>"
 
         # format = "<span background='#a3be8c' color='#222222'> %status%percentage </span>"
-        format = "<span> %status%percentage</span>"
+        format = "<span>%status%percentage</span>"
         format_down = " No Battery"
         status_chr = " "
-        status_bat = " "
+        status_bat = " "
         status_unk = " "
-        status_full = " "
+        status_full = " "
         path = "/sys/class/power_supply/BAT%d/uevent"
         low_threshold = 30
 	integer_battery_capacity = true
@@ -93,8 +95,8 @@ battery all {
 
 tztime utc {
         # format = "<span background='#81a1c1' color='#222222'> %time </span>"
-        # format = "%I:%M  · "
-        format = " %d/%m/%y  ·    %I:%M  ·"
+        # format = "%I:%M   "
+        format = " %d/%m/%y  ·  %I:%M  ·"
         # format_time = " %H:%M:%S" # %c
 }
 

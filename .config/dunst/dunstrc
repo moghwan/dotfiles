@@ -5,14 +5,14 @@
     progress_bar = false
     indicate_hidden = yes
     shrink = no
-    transparency = 0
+    transparency = 15
     notification_height = 0
     separator_height = 2
     padding = 10
     horizontal_padding = 10
     text_icon_padding = 0
     frame_width = 1
-    frame_color = "#00dc82"
+    frame_color = "#eeeeee"
     separator_color = frame
     sort = yes
     idle_threshold = 120
@@ -28,15 +28,15 @@
     ignore_newline = no
     stack_duplicates = true
     hide_duplicate_count = false
-    show_indicators = yes
+    show_indicators = no
     icon_position = left
     max_icon_size = 32
     sticky_history = yes
-    history_length = 20
+    history_length = 50
     always_run_script = true
     startup_notification = false
     verbosity = mesg
-    corner_radius = 0
+    corner_radius = 5
     ignore_dbusclose = false
     force_xinerama = false
     mouse_left_click = close_current
@@ -44,7 +44,7 @@
     mouse_right_click = close_all
 
 [shortcuts]
-    close = ctrl+space
+    close = mod1+space
     close_all = ctrl+shift+space
 
 [urgency_low]

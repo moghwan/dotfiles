@@ -1,3 +1,2 @@
-# minimal/personal i3wm dotfiles 
+# i3 config dotfiles 
 
-![](screenshot.png) 
