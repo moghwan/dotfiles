@@ -16,7 +16,7 @@ order += "disk /"
 order += "memory"
 # order += "disk /home"
 # order += "ethernet _first_"
-order += "wireless _first_"
+# order += "wireless _first_"
 order += "volume master"
 order += "battery all"
 order += "tztime utc"
@@ -96,7 +96,8 @@ battery all {
 tztime utc {
         # format = "<span background='#81a1c1' color='#222222'> %time </span>"
         # format = "%I:%M   "
-        format = " %d/%m/%y  ·  %I:%M  ·"
+        # format = " %d/%m/%y  ·  %I:%M  ·"
+        format = " %I:%M  ·"
         # format_time = " %H:%M:%S" # %c
 }
 
