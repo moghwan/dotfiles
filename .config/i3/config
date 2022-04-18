@@ -343,7 +343,7 @@ bar {
 	# status_command i3status
 	status_command /usr/bin/i3status-rs ~/.config/i3status-rust/config.toml
 	position top
-    height 22
+    height 20
     separator_symbol " · "
     font pango:DejaVu Sans Mono, FontAwesome 11
 
@@ -357,15 +357,15 @@ bar {
 	strip_workspace_numbers yes
 
     colors {
-        background #000000
+        background #222d32
         statusline #F9FAF9
         separator  #aaaaaa
 
 #                      border  backgr. text
-        focused_workspace  #eeeeee #eeeeee #292F34
+        focused_workspace  #000000 #000000 #FDF6E3
         active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #000000 #000000 #EEE8D5
-        binding_mode       #eeeeee #292F34 #eeeeee
+        inactive_workspace #222d32 #222d32 #cdd6da
+        binding_mode       #000000 #000000 #FDF6E3
         urgent_workspace   #16a085 #FDF6E3 #E5201D
     }
 }
