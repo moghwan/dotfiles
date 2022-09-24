@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -14,7 +21,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # ZSH_THEME="clean"
 # ZSH_THEME="3den"
 #ZSH_THEME="random"
-ZSH_THEME="jnrowe"
+#ZSH_THEME="jnrowe"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH_THEME="norm"
 # ZSH_THEME="agnoster"
 # ZSH_THEME="gnzh"
@@ -138,8 +146,11 @@ alias migratef="php artisan migrate:fresh"
 alias migratefs="php artisan migrate:fresh --seed"
 alias clearcache="php artisan cache:clear && php artisan route:clear && php artisan config:clear && php artisan view:clear"
 
-# switching to php7 instead of php8
-alias php="/usr/bin/php7"
+# add php7 alias to cli
+alias php7="/usr/bin/php7"
+
+# adding writing permissions to http/apache group
+alias reloadwww="sudo chmod -R g+w /srv/http"
 
 # alias externalonly="xrandr --output eDP1 --off"
 # alias monitoroto="xrandr --auto"
@@ -159,12 +170,15 @@ alias php="/usr/bin/php7"
 # `
 
 
-export NVM_DIR="$HOME/.nvm"
-# This loads nvm
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-# This loads nvm bash_completion
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-export PATH=$PATH:$HOME/.cargo/bin
+unsetopt PROMPT_SP 
+# cd ~/public_html && clear && echo && neofetch
+cd ~/public_html
 
-unsetopt PROMPT_SP
-clear && echo && neofetch
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.config/composer/vendor/bin
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

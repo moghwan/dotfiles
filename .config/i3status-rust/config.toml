@@ -12,10 +12,15 @@
 #nord-dark (polar night) nord-dark
 #dracula
 
-theme = "modern"
-#theme = "space-villain"
-icons = "awesome"
-
+[theme]
+name = "nord-dark"
+[theme.overrides]
+idle_bg = "#000000"
+idle_fg = "#dddddd"
+[icons]
+name = "awesome"
+[icons.overrides]
+music = ""
 
 #[[block]]
 #block = "focused_window"
@@ -24,19 +29,27 @@ icons = "awesome"
 
 [[block]]
 block = "music"
-max_width = 21
-marquee = true
+max_width = 16
+#marquee = true
 player = "spotify"
 buttons = ["play", "next"]
+#format = "ddf"
+[block.theme_overrides]
+info_bg = "#cccccc"
+info_fg = "#111111"
 
 [[block]]
 block = "sound"
 
 [[block]]
+block = "backlight"
+device = "intel_backlight"
+
+[[block]]
 block = "cpu"
 interval = 1
-format = "{utilization}"
-#format = "{utilization} / {frequency}"
+#format = "{utilization}"
+format = "{utilization} @{frequency}"
 
 # [[block]]
 # block = "external_ip"
@@ -49,28 +62,38 @@ format = "{utilization}"
 # resolution = true
 
 [[block]]
+block = "temperature"
+collapsed = false
+interval = 1
+#format = "{max}|{average}"
+format = "{max}"
+[block.theme_overrides]
+info_bg = "#eeeeee"
+info_fg = "#111111"
+
+[[block]]
 block = "load"
 interval = 1
 format = "{1m}"
-
-[[block]]
-block = "temperature"
-collapsed = true
-interval = 2
-#format = "{max} max, {average} avg"
-format = "{max}"
+[block.theme_overrides]
+idle_bg = "#cccccc"
+idle_fg = "#111111"
 
 [[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "{mem_used}"
-format_swap = "{mem_avail}"
+format_mem = "{mem_avail}"
+format_swap = "{mem_used}"
 
 [[block]]
 block = "networkmanager"
 interface_name_exclude = ["br\\-[0-9a-f]{12}", "docker\\d+"]
 interface_name_include = []
-device_format = "{icon}{ips}"
+device_format = "{icon}{ap}"
+[block.theme_overrides]
+good_bg = "#cccccc"
+good_fg = "#111111"
+
 
 [[block]]
 block = "disk_space"
@@ -91,27 +114,28 @@ format = "{icon}{available}"
 [[block]]
 block = "battery"
 if_command = "test -e /sys/class/power_supply/BAT0"
-format = "{percentage} {time} {power}"
+format = " {percentage} {time} {power}"
+[block.theme_overrides]
+good_bg = "#cccccc"
+good_fg = "#111111"
 
-[[block]]
-block = "weather"
-format = "{temp}"
-# format = "{weather} ({location}) {temp}, {wind} m/s {direction}"
-service = { name = "openweathermap", api_key = "17e96788a74ed298f5b9706c6e6509e6", city_id = "2530335", units = "metric" }
+# [[block]]
+# block = "weather"
+# format = "{temp}"
+# # format = "{weather} ({location}) {temp}, {wind} m/s {direction}"
+# service = { name = "openweathermap", api_key = "17e96788a74ed298f5b9706c6e6509e6", city_id = "2530335", units = "metric" }
 
 [[block]]
 block = "kdeconnect"
-format = "{bat_charge} {notif_icon}{notif_count}"
+format = "{bat_icon}  {bat_charge} {notif_icon}{notif_count}"
 format_disconnected = ""
 
 [[block]]
 block = "time"
 interval = 5
-format = "%R"
-
-#[[block]]
-#block = "backlight"
-#device = "intel_backlight"
+format = "%I:%M  %d/%m"
+#[block.color_overrides]
+#idle_fg = "#aaffaa"
 
 #[[block]]
 #block = "uptime"
