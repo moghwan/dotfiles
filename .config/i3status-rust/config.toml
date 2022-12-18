@@ -29,7 +29,7 @@ music = ""
 
 [[block]]
 block = "music"
-max_width = 16
+max_width = 0
 #marquee = true
 player = "spotify"
 buttons = ["play", "next"]
@@ -37,6 +37,8 @@ buttons = ["play", "next"]
 [block.theme_overrides]
 info_bg = "#cccccc"
 info_fg = "#111111"
+idle_bg = "#eeeeee"
+idle_fg = "#111111"
 
 [[block]]
 block = "sound"
@@ -94,6 +96,23 @@ device_format = "{icon}{ap}"
 good_bg = "#cccccc"
 good_fg = "#111111"
 
+# County code
+[[block]]
+block = "custom"
+command = """curl -s http://ip-api.com/json |  grep -o '"countryCode": *"[^"]*"' | grep -o '"[^"]*"$' | tr -d '"'"""
+interval = 40
+[block.theme_overrides]
+idle_bg = "#5e81ac"
+idle_fg = "#111111"
+
+# Windscribe Data Usage
+[[block]]
+block = "custom"
+command = """windscribe account | sed -n '3p' | grep -o -P '(?<=: ).*(?= /)'"""
+interval = 40
+[block.theme_overrides]
+idle_bg = "#5e81ac"
+idle_fg = "#111111"
 
 [[block]]
 block = "disk_space"
@@ -103,7 +122,10 @@ info_type = "used"
 unit = "GB"
 interval = 5
 alert = 60.0
-format = "{icon}{available}"
+format = "{icon} {available}"
+[block.theme_overrides]
+idle_bg = "#5e81ac"
+idle_fg = "#111111"
 
 #[[block]]
 #block = "net"
@@ -119,15 +141,15 @@ format = " {percentage} {time} {power}"
 good_bg = "#cccccc"
 good_fg = "#111111"
 
-# [[block]]
-# block = "weather"
-# format = "{temp}"
-# # format = "{weather} ({location}) {temp}, {wind} m/s {direction}"
-# service = { name = "openweathermap", api_key = "17e96788a74ed298f5b9706c6e6509e6", city_id = "2530335", units = "metric" }
+[[block]]
+block = "weather"
+format = "{temp}"
+# format = "{weather} ({location}) {temp}, {wind} m/s {direction}"
+service = { name = "openweathermap", api_key = "17e96788a74ed298f5b9706c6e6509e6", city_id = "2530335", units = "metric" }
 
 [[block]]
 block = "kdeconnect"
-format = "{bat_icon}  {bat_charge} {notif_icon}{notif_count}"
+format = "{bat_icon}  {bat_charge}"
 format_disconnected = ""
 
 [[block]]
