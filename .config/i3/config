@@ -155,9 +155,9 @@ set $ws1 1:
 set $ws2 2: 
 set $ws3 3: 
 set $ws4 4: 
-set $ws7 5: 
+set $ws5 5: 
 set $ws6 6: 
-set $ws5 7: 
+set $ws7 7: 
 set $ws8 8: 
 set $ws9 9: 
 set $ws10 10: 
@@ -294,18 +294,18 @@ mode "resize" {
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
-#exec --no-startup-id manjaro-hello
-#exec --no-startup-id kdeconnect-indicator
-exec --no-startup-id redshift-gtk -l 35.7595:5.8340
+# exec --no-startup-id manjaro-hello
+# exec --no-startup-id kdeconnect-indicator
+# exec --no-startup-id redshift-gtk -l 35.7595:5.8340
 # exec --no-startup-id indicator-sound-switcher
 exec --no-startup-id redshift
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 # exec --no-startup-id clipit
-exec --no-startup-id blueman-applet
+# exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
-exec --no-startup-id start_conky_maia
+#exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
@@ -377,6 +377,7 @@ bar {
 
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
+bindsym $mod+Shift+m bar mode invisible
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
@@ -402,7 +403,7 @@ gaps outer -2
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+smart_gaps off
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)

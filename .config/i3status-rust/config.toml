@@ -13,14 +13,15 @@
 #dracula
 
 [theme]
-name = "nord-dark"
+name = "solarized-light"
 [theme.overrides]
-idle_bg = "#000000"
-idle_fg = "#dddddd"
+idle_bg = "#cccccc"
+idle_fg = "#000000"
 [icons]
 name = "awesome"
 [icons.overrides]
 music = ""
+time = ""
 
 #[[block]]
 #block = "focused_window"
@@ -35,10 +36,10 @@ player = "spotify"
 buttons = ["play", "next"]
 #format = "ddf"
 [block.theme_overrides]
-info_bg = "#cccccc"
-info_fg = "#111111"
-idle_bg = "#eeeeee"
+idle_bg = "#cccccc"
 idle_fg = "#111111"
+info_bg = "#eeeeee"
+info_fg = "#111111"
 
 [[block]]
 block = "sound"
@@ -136,7 +137,7 @@ idle_fg = "#111111"
 [[block]]
 block = "battery"
 if_command = "test -e /sys/class/power_supply/BAT0"
-format = " {percentage} {time} {power}"
+format = " {percentage} {time} {power} "
 [block.theme_overrides]
 good_bg = "#cccccc"
 good_fg = "#111111"
@@ -153,14 +154,14 @@ format = "{bat_icon}  {bat_charge}"
 format_disconnected = ""
 
 [[block]]
+block = "uptime"
+
+[[block]]
 block = "time"
 interval = 5
 format = "%I:%M  %d/%m"
-#[block.color_overrides]
-#idle_fg = "#aaffaa"
-
-#[[block]]
-#block = "uptime"
+[block.theme_overrides]
+idle_bg = "#eeeeee"
 
 #[[block]]
 #block = "custom"
