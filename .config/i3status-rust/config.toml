@@ -55,24 +55,20 @@ interval = 1
 #format = "{utilization}"
 format = "$icon$utilization @$frequency"
 
-# [[block]]
-# block = "external_ip"
-# format = "{ip} {country_code}"
+ [[block]]
+ block = "external_ip"
+ format = "{ip} {country_code}"
 
-
-[[block]]
-block = "xrandr"
-format = "$icon $resolution"
-# icons = true
-# resolution = true
+#[[block]]
+#block = "xrandr"
+#format = "$icon $resolution"
 
 [[block]]
 block = "temperature"
-format_alt = " $icon "
-#collapsed = false
 interval = 1
 #format = "{max}|{average}"
 format = "$icon $max/$average"
+format_alt = " $icon "
 [block.theme_overrides]
 info_bg = "#eeeeee"
 info_fg = "#111111"
@@ -87,12 +83,8 @@ idle_fg = "#111111"
 
 [[block]]
 block = "memory"
-#display_type = "memory"
-#format_mem = "{mem_avail}"
-#format_swap = "{mem_used}"
 format = "$icon$mem_used/$mem_total"
 # format = "$icon$mem_used/$mem_avail"
-# format_alt = "$icon$mem_used"
 
 # County code
 [[block]]
@@ -115,9 +107,7 @@ idle_fg = "#eeeeee"
 [[block]]
 block = "disk_space"
 path = "/"
-#alias = "/"
-info_type = "used"
-#unit = "GB"
+info_type = "free"
 interval = 5
 alert = 60.0
 format = "$icon $available"
@@ -127,8 +117,6 @@ idle_fg = "#111111"
 
 [[block]]
 block = "net"
-#interface_name_exclude = ["br\\-[0-9a-f]{12}", "docker\\d+"]
-#interface_name_include = []
 format = "$icon"
 [[block.click]]
 button = "left"
@@ -154,21 +142,19 @@ good_fg = "#111111"
 [[block]]
 block = "weather"
 format = "$icon $temp $weather"
-# format = "{weather} ({location}) {temp}, {wind} m/s {direction}"
+# format = "$icon $weather ($location) $temp, $wind m/s $direction"
 service = { name = "openweathermap", api_key = "17e96788a74ed298f5b9706c6e6509e6", city_id = "2530335", units = "metric" }
 
 [[block]]
 block = "kdeconnect"
 format = "$icon $bat_charge "
-#format_disconnected = ""
 
-[[block]]
-block = "uptime"
+#[[block]]
+#block = "uptime"
 
 [[block]]
 block = "time"
 interval = 5
-#format = "%I:%M  %d/%m"
 #format = "$icon"
 [block.theme_overrides]
 idle_bg = "#eeeeee"
