@@ -299,7 +299,7 @@ exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 # exec --no-startup-id redshift-gtk -l 35.7595:5.8340
 # exec --no-startup-id indicator-sound-switcher
 exec --no-startup-id redshift
-#exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 # exec --no-startup-id clipit
@@ -362,28 +362,31 @@ bar {
 	strip_workspace_numbers yes
 
     colors {
-        background #cccccc
+        background #f7f8fa
         statusline #000000
-        separator  #777777
+        separator  #dddddd
 
 #                      border  backgr. text
-        focused_workspace  #FFFFFF #FFFFFF #222222
-        active_workspace   #FFFFFF #FFFFFF #000000
-        inactive_workspace #cccccc #cccccc #000000
-        binding_mode       #FFFFFF #FFFFFF #000000
+        focused_workspace  #dddddd #dddddd #222222
+        active_workspace   #dddddd #dddddd #000000
+        inactive_workspace #f7f8fa #f7f8fa #000000
+        binding_mode       #dddddd #dddddd #000000
         urgent_workspace   #16a085 #E5201D #FDF6E3
     }
 }
 
-# hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
+## hide/unhide i3status bar
+## bindsym $mod+m bar mode toggle
+# unhide i3status bar
+bindsym $mod+m bar mode dock
+# hide i3status bar
 bindsym $mod+Shift+m bar mode invisible
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #aaaaaa #F9FAF9 #000000 #FDF6E3 #aaaaaa
-  client.focused_inactive #1E2228 #dddddd #222222 #454948
-  client.unfocused        #bbbbbb #bbbbbb #666666 #454948
+  client.focused          #27282e #27282e #F9FAF9 #FDF6E3 #aaaaaa
+  client.focused_inactive #27282e #27282e #999999 #454948
+  client.unfocused        #27282e #27282e #999999 #454948
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
   client.placeholder      #000000 #0c0c0c #ffffff #000000
 
@@ -403,7 +406,7 @@ gaps outer -2
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps off
+smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)

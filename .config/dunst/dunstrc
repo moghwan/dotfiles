@@ -11,7 +11,7 @@
     horizontal_padding = 10
     text_icon_padding = 0
     frame_width = 1
-    frame_color = "#222222"
+    frame_color = "#27282e"
     transparency = 5
     separator_color = frame
     sort = yes
@@ -19,7 +19,7 @@
     font = Source Sans Pro 10
     line_height = 0
     markup = full
-    format = "<span foreground='#222222'><b>%s %p</b></span>\n%b"
+    format = "<span foreground='#F9FAF9'><b>%s %p</b></span>\n%b"
     alignment = left
     vertical_alignment = center
     show_age_threshold = 60
@@ -56,8 +56,8 @@
 
 [urgency_normal]
     # background = "#171c28"
-    background = "#eeeeee"
-    foreground = "#0d0d0d"
+    background = "#27282e"
+    foreground = "#F9FAF9"
     timeout = 10
 
 [urgency_critical]
