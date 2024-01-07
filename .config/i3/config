@@ -296,7 +296,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 # exec --no-startup-id manjaro-hello
 # exec --no-startup-id kdeconnect-indicator
-# exec --no-startup-id redshift-gtk -l 35.7595:5.8340
+exec --no-startup-id redshift-gtk -l 35.7595:5.8340
 # exec --no-startup-id indicator-sound-switcher
 exec --no-startup-id redshift
 # exec --no-startup-id nm-applet
@@ -323,28 +323,28 @@ exec_always --no-startup-id fix_xcursor
 # to:
 # background $term_background
 # Same logic applied to everything else.
-set_from_resource $term_background background
-set_from_resource $term_foreground foreground
-set_from_resource $term_color0     color0
-set_from_resource $term_color1     color1
-set_from_resource $term_color2     color2
-set_from_resource $term_color3     color3
-set_from_resource $term_color4     color4
-set_from_resource $term_color5     color5
-set_from_resource $term_color6     color6
-set_from_resource $term_color7     color7
-set_from_resource $term_color8     color8
-set_from_resource $term_color9     color9
-set_from_resource $term_color10    color10
-set_from_resource $term_color11    color11
-set_from_resource $term_color12    color12
-set_from_resource $term_color13    color13
-set_from_resource $term_color14    color14
-set_from_resource $term_color15    color15
+#set_from_resource $term_background background
+#set_from_resource $term_foreground foreground
+#set_from_resource $term_color0     color0
+#set_from_resource $term_color1     color1
+#set_from_resource $term_color2     color2
+#set_from_resource $term_color3     color3
+#set_from_resource $term_color4     color4
+#set_from_resource $term_color5     color5
+#set_from_resource $term_color6     color6
+#set_from_resource $term_color7     color7
+#set_from_resource $term_color8     color8
+#set_from_resource $term_color9     color9
+#set_from_resource $term_color10    color10
+#set_from_resource $term_color11    color11
+#set_from_resource $term_color12    color12
+#set_from_resource $term_color13    color13
+#set_from_resource $term_color14    color14
+#set_from_resource $term_color15    color15
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
-	i3bar_command i3bar
+	#i3bar_command i3bar
 	# status_command i3status
 	status_command /usr/bin/i3status-rs ~/.config/i3status-rust/config.toml
 	position bottom
@@ -384,9 +384,9 @@ bindsym $mod+Shift+m bar mode invisible
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #27282e #27282e #F9FAF9 #FDF6E3 #aaaaaa
-  client.focused_inactive #27282e #27282e #999999 #454948
-  client.unfocused        #27282e #27282e #999999 #454948
+  client.focused          #dddddd #dddddd #000000 #FDF6E3 #aaaaaa
+  client.focused_inactive #f7f8fa #f7f8fa #777777 #454948
+  client.unfocused        #f7f8fa #f7f8fa #777777 #454948
   client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
   client.placeholder      #000000 #0c0c0c #ffffff #000000
 
