@@ -38,6 +38,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
+SPACESHIP_PHP_SHOW="true"
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -96,6 +98,7 @@ plugins=(
     git
     zsh-autosuggestions
     zsh-syntax-highlighting
+    dirhistory
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -151,6 +154,7 @@ alias php7="/usr/bin/php7"
 
 # adding writing permissions to http/apache group
 alias reloadwww="sudo chmod -R g+w /srv/http"
+alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 
 # alias externalonly="xrandr --output eDP1 --off"
 # alias monitoroto="xrandr --auto"
@@ -172,7 +176,7 @@ alias reloadwww="sudo chmod -R g+w /srv/http"
 
 unsetopt PROMPT_SP 
 # cd ~/public_html && clear && echo && neofetch
-cd ~/public_html
+cd ~/Projects
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -183,4 +187,11 @@ export PATH=$PATH:$HOME/.config/composer/vendor/bin
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# brew
+[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
+
 export EDITOR=nvim
+nvm use 18
+clear 
+
+export PATH=$PATH:/home/moghwan/.spicetify
