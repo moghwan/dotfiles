@@ -20,7 +20,7 @@ idle_fg = "#000000"
 [icons]
 icons = "awesome4"
 [icons.overrides]
-music = ""
+#music = ""
 
 #[[block]]
 #block = "focused_window"
@@ -28,6 +28,7 @@ music = ""
 [[block]]
 block = "music"
 #player = "spotify"
+format = "  $title.str(max_w:100)"
 [block.theme_overrides]
 idle_bg = "#eeeeee"
 idle_fg = "#111111"
@@ -67,7 +68,7 @@ info_fg = "#111111"
 [[block]]
 block = "load"
 interval = 1
-format = " $icon$1m.eng(w:3) "
+format = " $icon $1m.eng(w:3) "
 [block.theme_overrides]
 idle_bg = "#cccccc"
 idle_fg = "#111111"
@@ -78,7 +79,7 @@ block = "custom"
 command = """curl -s http://ip-api.com/json |  grep -o '"countryCode": *"[^"]*"' | grep -o '"[^"]*"$' | tr -d '"'"""
 interval = 40
 [block.theme_overrides]
-idle_bg = "#5e81ac"
+idle_bg = "#669E90"
 idle_fg = "#eeeeee"
 
 # Windscribe Data Usage
@@ -92,7 +93,8 @@ idle_fg = "#eeeeee"
 
 [[block]]
 block = "memory"
-format = " $icon$mem_used/$mem_total "
+format = " $icon $mem_used "
+#format = " $icon$mem_used/$mem_total "
 # format = "$icon$mem_used/$mem_avail"
 
 [[block]]
@@ -109,7 +111,7 @@ idle_fg = "#111111"
 [[block]]
 block = "net"
 # format = " $icon $speed_down \uF175 /$speed_up \uF176 " 
-format = " $icon @$ssid "
+format = " $icon @$ssid " 
 [[block.click]]
 button = "left"
 cmd = "nm-connection-editor"
@@ -126,24 +128,33 @@ good_bg = "#eeeeee"
 good_fg = "#111111"
 
 [[block]]
+block = "kdeconnect"
+format = " $icon $bat_charge "
+
+[[block]]
+block = "uptime"
+
+[[block]]
 block = "weather"
 format = " $icon $temp "
 # format = "$icon $weather ($location) $temp, $wind m/s $direction"
 service = { name = "openweathermap", api_key = "17e96788a74ed298f5b9706c6e6509e6", city_id = "2529013", units = "metric" }
-
-[[block]]
-block = "kdeconnect"
-format = " $icon $bat_charge "
-
-#[[block]]
-#block = "uptime"
+[block.theme_overrides]
+idle_bg = "#eeeeee"
 
 [[block]]
 block = "time"
-interval = 5
-#format = "$icon"
+interval = 60
+[block.format]
+full = "  $timestamp.datetime(f:'%d/%m', l:en_US) "
+
+[[block]]
+block = "time"
+interval = 1
+[block.format]
+full = "  $timestamp.datetime(f:'%I:%M:%S%P', l:en_US) "
 [block.theme_overrides]
-idle_bg = "#eeeeee"
+idle_bg = "#f7f8fa"
 
 ##[[block]]
 ##block = "custom"
