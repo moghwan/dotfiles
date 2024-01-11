@@ -155,6 +155,8 @@ alias php7="/usr/bin/php7"
 # adding writing permissions to http/apache group
 alias reloadwww="sudo chmod -R g+w /srv/http"
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
+alias pest='./vendor/bin/pest'
+alias pint='./vendor/bin/pint'
 
 # alias externalonly="xrandr --output eDP1 --off"
 # alias monitoroto="xrandr --auto"
@@ -176,7 +178,7 @@ alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 
 unsetopt PROMPT_SP 
 # cd ~/public_html && clear && echo && neofetch
-cd ~/Projects
+# cd ~/Projects
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -193,5 +195,3 @@ export PATH=$PATH:$HOME/.config/composer/vendor/bin
 export EDITOR=nvim
 nvm use 18
 clear 
-
-export PATH=$PATH:/home/moghwan/.spicetify
