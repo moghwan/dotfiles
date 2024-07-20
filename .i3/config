@@ -62,7 +62,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
 # Start Applications
-bindsym $mod+x exec konsole -e ranger
+bindsym $mod+x exec alacritty -e ranger
 bindsym $mod+Ctrl+x exec dolphin
 bindsym $mod+g exec zenity --calendar
 bindsym $mod+Shift+s exec flameshot gui
