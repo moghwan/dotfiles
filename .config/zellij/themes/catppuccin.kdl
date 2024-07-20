@@ -3,16 +3,16 @@
 
 themes {
   catppuccin-latte {
-    bg "#acb0be" // Surface2
-    fg "#acb0be" // Surface2
-    red "#d20f39"
-    green "#40a02b"
+    bg "#dee0e2" // Surface2
+    fg "#f59e0b" // Surface2
+    red "#111111"
+    green "#2563eb"
     blue "#1e66f5"
     yellow "#df8e1d"
     magenta "#ea76cb" // Pink
-    orange "#fe640b" // Peach
-    cyan "#04a5e5" // Sky
-    black "#dce0e8" // Crust
+    orange "#10b981" // Peach
+    cyan "#f59e0b" // Sky
+    black "#eff1f5" // Crust
     white "#4c4f69" // Text
   }
 

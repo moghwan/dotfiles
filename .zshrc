@@ -158,6 +158,10 @@ alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 alias pest='./vendor/bin/pest'
 alias pint='./vendor/bin/pint'
 
+# alias ls="colorls"
+alias ls="colorls --light"
+alias vpn="sudo openfortivpn"
+
 # alias externalonly="xrandr --output eDP1 --off"
 # alias monitoroto="xrandr --auto"
 # alias budf=`
@@ -186,6 +190,8 @@ export NVM_DIR="$HOME/.nvm"
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.config/composer/vendor/bin
 
+export PATH=$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -193,5 +199,5 @@ export PATH=$PATH:$HOME/.config/composer/vendor/bin
 [[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 
 export EDITOR=nvim
-nvm use 18
+# nvm use 20
 clear 

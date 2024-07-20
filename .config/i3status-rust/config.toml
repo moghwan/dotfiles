@@ -109,6 +109,23 @@ idle_bg = "#eeeeee"
 idle_fg = "#111111"
 
 [[block]]
+block = "battery"
+if_command = "test -e /sys/class/power_supply/BAT0"
+format = " $icon $percentage $time $power "
+[block.theme_overrides]
+good_bg = "#eeeeee"
+good_fg = "#111111"
+
+#[[block]]
+#block = "kdeconnect"
+#format = " $icon $bat_charge "
+
+[[block]]
+block = "uptime"
+[block.theme_overrides]
+idle_bg = "#eeeeee"
+
+[[block]]
 block = "net"
 # format = " $icon $speed_down \uF175 /$speed_up \uF176 " 
 format = " $icon @$ssid " 
@@ -118,21 +135,6 @@ cmd = "nm-connection-editor"
 [block.theme_overrides]
 good_bg = "#cccccc"
 good_fg = "#111111"
-
-[[block]]
-block = "battery"
-if_command = "test -e /sys/class/power_supply/BAT0"
-format = " $icon $percentage $time $power "
-[block.theme_overrides]
-good_bg = "#eeeeee"
-good_fg = "#111111"
-
-[[block]]
-block = "kdeconnect"
-format = " $icon $bat_charge "
-
-[[block]]
-block = "uptime"
 
 [[block]]
 block = "weather"
