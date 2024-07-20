@@ -161,6 +161,7 @@ alias pint='./vendor/bin/pint'
 # alias ls="colorls"
 alias ls="colorls --light"
 alias vpn="sudo openfortivpn"
+alias fzff='fzf --preview="bat --color=always {}"'
 
 # alias externalonly="xrandr --output eDP1 --off"
 # alias monitoroto="xrandr --auto"
