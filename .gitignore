@@ -1,3 +1,5 @@
 .config/gtk-3.0/assets
 .idea
 .directory
+.config/ranger/plugins/__pycache__/**
+.config/ranger/__pycache__/**
