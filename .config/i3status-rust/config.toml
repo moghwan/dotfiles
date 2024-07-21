@@ -13,10 +13,10 @@
 #dracula
 
 [theme]
-theme = "solarized-light"
+theme = "ctp-latte"
 [theme.overrides]
-idle_bg = "#cccccc"
-idle_fg = "#000000"
+idle_bg = "#eff1f5"
+#idle_fg = "#000000"
 [icons]
 icons = "awesome4"
 [icons.overrides]
@@ -30,10 +30,10 @@ block = "music"
 #player = "spotify"
 #format = "  $title.str(max_w:100)"
 [block.theme_overrides]
-idle_bg = "#eeeeee"
-idle_fg = "#111111"
-info_bg = "#cccccc"
-info_fg = "#111111"
+idle_bg = "#cbcfd9"
+#idle_fg = "#111111"
+info_bg = "#444444"
+#info_fg = "#111111"
 
 [[block]]
 block = "sound"
@@ -43,8 +43,8 @@ block = "backlight"
 device = "intel_backlight"
 format = " $icon "
 [block.theme_overrides]
-idle_bg = "#eeeeee"
-idle_fg = "#111111"
+idle_bg = "#cbcfd9"
+#idle_fg = "#111111"
 
 [[block]]
 block = "cpu"
@@ -59,19 +59,19 @@ format = " $icon $frequency.eng(prefix:M,w:3)@$utilization "
 block = "temperature"
 interval = 1
 #format = "{max}|{average}"
-format = " $icon $max/$average "
-format_alt = " $icon "
+format_alt = " $icon $max/$average "
+format = " $icon "
 [block.theme_overrides]
-info_bg = "#eeeeee"
-info_fg = "#111111"
+#info_bg = "#eeeeee"
+#info_fg = "#111111"
 
 [[block]]
 block = "load"
 interval = 1
 format = " $icon $1m.eng(w:3) "
 [block.theme_overrides]
-idle_bg = "#cccccc"
-idle_fg = "#111111"
+idle_bg = "#cbcfd9"
+#idle_fg = "#111111"
 
 # County code
 [[block]]
@@ -79,7 +79,7 @@ block = "custom"
 command = """curl -s http://ip-api.com/json |  grep -o '"countryCode": *"[^"]*"' | grep -o '"[^"]*"$' | tr -d '"'"""
 interval = 40
 [block.theme_overrides]
-idle_bg = "#669E90"
+idle_bg = "#1aba8f"
 idle_fg = "#eeeeee"
 
 # Windscribe Data Usage
@@ -102,19 +102,19 @@ block = "disk_space"
 path = "/"
 info_type = "free"
 interval = 5
-alert = 60.0
+alert = 50.0
 format = " $icon $available "
 [block.theme_overrides]
-idle_bg = "#eeeeee"
-idle_fg = "#111111"
+#idle_bg = "#eeeeee"
+#idle_fg = "#111111"
 
 [[block]]
 block = "battery"
 if_command = "test -e /sys/class/power_supply/BAT0"
 format = " $icon $percentage $time $power "
 [block.theme_overrides]
-good_bg = "#eeeeee"
-good_fg = "#111111"
+#good_bg = "#eeeeee"
+#good_fg = "#111111"
 
 #[[block]]
 #block = "kdeconnect"
@@ -122,8 +122,6 @@ good_fg = "#111111"
 
 [[block]]
 block = "uptime"
-[block.theme_overrides]
-idle_bg = "#eeeeee"
 
 [[block]]
 block = "net"
@@ -132,9 +130,6 @@ format = " $icon @$ssid "
 [[block.click]]
 button = "left"
 cmd = "nm-connection-editor"
-[block.theme_overrides]
-good_bg = "#cccccc"
-good_fg = "#111111"
 
 [[block]]
 block = "weather"
@@ -142,7 +137,7 @@ format = " $icon $temp "
 # format = "$icon $weather ($location) $temp, $wind m/s $direction"
 service = { name = "openweathermap", api_key = "17e96788a74ed298f5b9706c6e6509e6", city_id = "2529013", units = "metric" }
 [block.theme_overrides]
-idle_bg = "#eeeeee"
+idle_bg = "#cbcfd9"
 
 [[block]]
 block = "time"
@@ -155,8 +150,6 @@ block = "time"
 interval = 1
 [block.format]
 full = "  $timestamp.datetime(f:'%I:%M:%S%P', l:en_US) "
-[block.theme_overrides]
-idle_bg = "#f7f8fa"
 
 ##[[block]]
 ##block = "custom"
