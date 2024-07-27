@@ -4,3 +4,5 @@
 __pycache__
 *.backup
 *.swp
+vim/.vim/plugged/**
+.git
