@@ -1,5 +1,6 @@
 .config/gtk-3.0/assets
 .idea
 .directory
-.config/ranger/plugins/__pycache__/**
-.config/ranger/__pycache__/**
+__pycache__
+*.backup
+*.swp
