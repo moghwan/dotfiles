@@ -113,7 +113,7 @@ block = "battery"
 if_command = "test -e /sys/class/power_supply/BAT0"
 format = " $icon $percentage $time $power "
 [block.theme_overrides]
-#good_bg = "#eeeeee"
+good_bg = "#1aba8f"
 #good_fg = "#111111"
 
 #[[block]]
