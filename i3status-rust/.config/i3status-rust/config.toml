@@ -130,20 +130,22 @@ format = " $icon @$ssid "
 [[block.click]]
 button = "left"
 cmd = "nm-connection-editor"
-
-[[block]]
-block = "weather"
-format = " $icon $temp "
-# format = "$icon $weather ($location) $temp, $wind m/s $direction"
-service = { name = "openweathermap", api_key = "17e96788a74ed298f5b9706c6e6509e6", city_id = "2529013", units = "metric" }
 [block.theme_overrides]
 idle_bg = "#cbcfd9"
+
+#[[block]]
+#block = "weather"
+#format = " $icon $temp "
+## format = "$icon $weather ($location) $temp, $wind m/s $direction"
+#service = { name = "openweathermap", api_key = "17e96788a74ed298f5b9706c6e6509e6", city_id = "2529013", units = "metric" }
 
 [[block]]
 block = "time"
 interval = 60
 [block.format]
 full = "  $timestamp.datetime(f:'%d/%m', l:en_US) "
+[block.theme_overrides]
+idle_bg = "#cbcfd9"
 
 [[block]]
 block = "time"
