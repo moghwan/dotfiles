@@ -348,17 +348,53 @@ exec_always --no-startup-id fix_xcursor
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
+  output primary
 	# i3bar_command i3bar
 	# status_command i3status
 	status_command /usr/bin/i3status-rs ~/.config/i3status-rust/config.toml
-	position top
+	position bottom
     height 18
     separator_symbol " · "
     #font pango:DejaVu Sans Mono, FontAwesome Regular 10
     font pango:DejaVu Sans Mono, awesome6 Regular 11
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
+tray_output primary
+#	tray_output eDP1
+
+	bindsym button4 nop
+	bindsym button5 nop
+#   font xft:URWGothic-Book 11
+	strip_workspace_numbers yes
+
+    colors {
+        #background #f7f8fa
+	background #eff1f5
+        statusline #000000
+        separator  #f7f8fa
+
+#                      border  backgr. text
+        focused_workspace  #cbcfd9 #cbcfd9 #51546e
+        active_workspace   #cbcfd9 #cbcfd9 #51546e
+        inactive_workspace #eff1f5 #eff1f5 #4c4f69
+        binding_mode       #eff1f5 #eff1f5 #4c4f69
+        urgent_workspace   #16a085 #E5201D #FDF6E3
+    }
+}
+
+bar {
+  output DP-1
+	# i3bar_command i3bar
+	# status_command i3status
+	status_command /usr/bin/i3status-rs ~/.config/i3status-rust/config.min.toml
+	position bottom
+    height 18
+    separator_symbol " · "
+    #font pango:DejaVu Sans Mono, FontAwesome Regular 10
+    font pango:DejaVu Sans Mono, awesome6 Regular 11
+
+## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+tray_output primary
 #	tray_output eDP1
 
 	bindsym button4 nop
