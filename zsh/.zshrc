@@ -164,9 +164,6 @@ alias fzfv='vim $(fzf -m --preview="bat --color=always {}")'
 
 alias vpn="sudo openfortivpn"
 
-alias z="zellij"
-alias za="zellij attach"
-
 # alias externalonly="xrandr --output eDP1 --off"
 # alias monitoroto="xrandr --auto"
 # alias budf=`
