@@ -196,6 +196,7 @@ export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.config/composer/vendor/bin
 
 export PATH=$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin
+export PATH=$PATH:$HOME/Android/flutter/bin
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
